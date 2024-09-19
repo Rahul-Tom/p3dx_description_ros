@@ -6,7 +6,18 @@ cmake_policy(SET CMP0057 NEW)
 find_package(urdf REQUIRED)
 
 # find_package(catkin QUIET)
-find_package(ament_cmake QUIET)
+# find_package(ament_cmake QUIET)
+# Find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(rclpy REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+# Install Python modules
+install(DIRECTORY src/
+  DESTINATION lib/${PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.py"
+)
 
 # if(catkin_FOUND)
 #   message("catkin found! Assuming ROS1 build.")
@@ -51,6 +62,11 @@ find_package(ament_cmake QUIET)
 install(
   DIRECTORY meshes urdf launch config rviz
   DESTINATION share/${PROJECT_NAME}
+)
+# Mark executable scripts
+install(PROGRAMS
+  src/dynamic_object_detector_2d_lidar.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)

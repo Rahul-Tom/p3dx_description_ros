@@ -24,6 +24,16 @@
   <exec_depend>nav2_common</exec_depend>
   <exec_depend>slam_toolbox</exec_depend>
 
+  <!-- Add dependencies here -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sklearn</exec_depend> <!-- If you are using sklearn -->
+  <exec_depend>numpy</exec_depend>    <!-- If you are using numpy -->
+
+  <!-- Python3 as runtime dependency -->
+  <exec_depend>python3</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
